@@ -1,0 +1,37 @@
+<TMPL_INCLUDE NAME=header.html>
+<SPAN ID="certfields">
+<FORM METHOD="POST" ID="update" ENCTYPE="multipart/form-data">
+<H2 ID="title">Update Certificate in Archive</H2>
+  <DIV CLASS="field">
+    <LABEL>Input Method</LABEL>
+    <DIV CLASS="multi">
+      <LABEL FOR="cert_file"><INPUT TYPE="radio" NAME="cert_type" VALUE="cert_file" ID="cert_file" REQUIRED="true" <TMPL_IF NAME=cert_file>CHECKED</TMPL_IF>>
+      Upload a certificate file.</LABEL>
+      <LABEL FOR="cert_text"><INPUT TYPE="radio" NAME="cert_type" VALUE="cert_text" ID="cert_text" REQUIRED="true" <TMPL_IF NAME=cert_text>CHECKED</TMPL_IF>>
+      Paste certificate text.</LABEL>
+    </DIV>
+  </DIV>
+  <DIV CLASS="field cert_file">
+    <LABEL FOR="cert_file">Certificate File:</LABEL> 
+    <INPUT TYPE="file" NAME="cert_file" ID="cert_file">
+  </DIV> 
+  <DIV CLASS="field cert_text">
+    <LABEL FOR="cert_text">Certificate Text:</LABEL>
+    <TEXTAREA NAME="cert_text" ID="cert_text" SPELLCHECK="false"><TMPL_VAR NAME=cert_text></TEXTAREA>
+  </DIV>
+  <INPUT TYPE="hidden" NAME="passphrase" VALUE="<TMPL_VAR NAME=passphrase>">
+  <INPUT TYPE="hidden" NAME="privatekey" VALUE="<TMPL_VAR NAME=privatekey>">
+  <INPUT TYPE="hidden" NAME="action"     VALUE="update">
+<DIV>
+  <INPUT TYPE="submit" NAME="submit_pfx" VALUE="Download PFX">
+</DIV>
+</FORM>
+</SPAN>
+
+<DIV ID="cancel">
+  <FORM METHOD="POST" ID="cancel">
+  <INPUT TYPE="submit" NAME="submit_cancel" VALUE="Done">
+  </FORM>
+</DIV>
+  
+<TMPL_INCLUDE NAME=footer.html>

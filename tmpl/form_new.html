@@ -1,0 +1,38 @@
+<TMPL_INCLUDE NAME=header.html>
+<H2 ID="title">Certificate Archive Management Tool</H2>
+<SPAN ID="certfields">
+<FORM METHOD="POST" ID="new" ENCTYPE="multipart/form-data">
+  <B>Manage Certificates for an existing Private Key</B>
+  <DIV CLASS="field">
+    <LABEL FOR="pfx">PFX/PKCS12 or Key/PKCS8:</LABEL> 
+    <INPUT TYPE="file" NAME="pfx" ID="pfx" REQUIRED="true">
+  </DIV>
+  <DIV CLASS="field">
+    <LABEL FOR="passphrase">Passphrase:</LABEL>
+    <INPUT TYPE="password" NAME="passphrase" ID="passphrase" REQUIRED="true">
+  </DIV>
+  <DIV CLASS="field">
+    <LABEL>Action:</LABEL>
+    <DIV CLASS="multi">
+      <LABEL FOR="copycert"><INPUT TYPE="radio" NAME="action" VALUE="copycert" ID="copycert" REQUIRED="true" CHECKED>
+      Get a CSR: Initiate a Certificate Signing Request.</LABEL>
+      <LABEL FOR="update"><INPUT TYPE="radio" NAME="action" VALUE="update" ID="update" REQUIRED="true">
+      Get a PFX: Add or update the certificate stored in this file.</LABEL>
+    </DIV>
+  </DIV>
+<DIV>
+<INPUT TYPE="submit" NAME="submit_submit" VALUE="Submit">
+</DIV>
+</FORM>
+<BR>
+<FORM METHOD="POST" ID="create" ENCTYPE="multipart/form-data">
+  <B>Create a Certificate Signing Request using a new Private Key</B>
+  <DIV CLASS="field">
+    <LABEL FOR="passphrase">Passphrase:</LABEL>
+    <INPUT TYPE="password" NAME="passphrase" ID="passphrase" REQUIRED="true">
+  </DIV>
+  <INPUT TYPE="hidden" NAME="action" VALUE="create">
+<INPUT TYPE="submit" NAME="submit_create" VALUE="Create">
+</FORM>
+</SPAN>
+<TMPL_INCLUDE NAME=footer.html>

@@ -1,0 +1,85 @@
+<TMPL_INCLUDE NAME=header.html>
+<SPAN ID="certfields">
+<FORM METHOD="POST" ID="copy" ENCTYPE="multipart/form-data">
+<H2 ID="title">Edit Certificate Signing Request</H2>
+  <DIV CLASS="field">
+    <LABEL FOR="CN">Common Name: </LABEL>
+    <INPUT TYPE="text" NAME="CN" ID="CN" REQUIRED="true" VALUE="<TMPL_VAR NAME=CN>">
+  </DIV>
+  <DIV CLASS="field">
+    <LABEL FOR="E">Email Address: </LABEL>
+    <INPUT TYPE="text" NAME="E" ID="E" REQUIRED="true" VALUE="<TMPL_VAR NAME=E>">
+  </DIV>
+  <DIV CLASS="field">
+    <LABEL FOR="OU">Organizational Unit: </LABEL>
+    <INPUT TYPE="text" NAME="OU" ID="OU" REQUIRED="true" VALUE="<TMPL_VAR NAME=OU>">
+  </DIV>
+  <DIV CLASS="field">
+    <LABEL FOR="O">Organization: </LABEL>
+    <INPUT TYPE="text" NAME="O" ID="O" REQUIRED="true" VALUE="<TMPL_VAR NAME=O>">
+  </DIV>
+  <DIV CLASS="field">
+    <LABEL FOR="ST">State: </LABEL>
+    <INPUT TYPE="text" NAME="ST" ID="ST" REQUIRED="true" VALUE="<TMPL_VAR NAME=ST>">
+  </DIV>
+  <DIV CLASS="field">
+    <LABEL FOR="L">Locality (City): </LABEL>
+    <INPUT TYPE="text" NAME="L" ID="L" VALUE="<TMPL_VAR NAME=L>">
+  </DIV>
+  <DIV CLASS="field">
+    <LABEL FOR="C">Country: </LABEL>
+    <INPUT TYPE="text" NAME="C" ID="C" REQUIRED="true" VALUE="<TMPL_VAR NAME=C>">
+  </DIV>
+  <DIV CLASS="field">
+    <LABEL FOR="2.16.840.1.113730.1.13">Comment (CRQ, etc): </LABEL>
+    <INPUT TYPE="text" NAME="2.16.840.1.113730.1.13" ID="2.16.840.1.113730.1.13" REQUIRED="true" VALUE="<TMPL_VAR NAME=2.16.840.1.113730.1.13>">
+  </DIV>
+  <DIV CLASS="field">
+    <LABEL>Key Usage: </LABEL>
+    <DIV CLASS="multi">
+      <LABEL FOR="digitalSignature"><INPUT TYPE="checkbox" NAME="2.5.29.15" ID="digitalSignature" REQUIRED="true" VALUE="Digital Signature">Digital Signature</LABEL>
+      <LABEL FOR="nonRepudiation"><INPUT TYPE="checkbox" NAME="2.5.29.15" ID="nonRepudiation" REQUIRED="true" VALUE="Non Repudiation">Non Repudiation</LABEL>
+      <LABEL FOR="keyEncipherment"><INPUT TYPE="checkbox" NAME="2.5.29.15" ID="keyEncipherment" REQUIRED="true" VALUE="Key Encipherment">Key Encipherment</LABEL>
+      <LABEL FOR="dataEncipherment"><INPUT TYPE="checkbox" NAME="2.5.29.15" ID="dataEncipherment" REQUIRED="true" VALUE="Data Encipherment">Data Encipherment</LABEL>
+    </DIV>
+  </DIV>
+  <DIV CLASS="field">
+    <LABEL>Extended Key Usage: </LABEL>
+    <DIV CLASS="multi">
+      <LABEL FOR="serverAuth"><INPUT TYPE="checkbox" NAME="2.5.29.37" ID="serverAuth" REQUIRED="true" VALUE="TLS Web Server Authentication">TLS Web Server Authentication</LABEL>
+      <LABEL FOR="clientAuth"><INPUT TYPE="checkbox" NAME="2.5.29.37" ID="clientAuth" REQUIRED="true" VALUE="TLS Web Client Authentication">TLS Web Client Authentication</LABEL>
+      <LABEL FOR="codeSigning"><INPUT TYPE="checkbox" NAME="2.5.29.37" ID="codeSigning" REQUIRED="true" VALUE="Code Signing">Code Signing</LABEL>
+      <LABEL FOR="emailProtection"><INPUT TYPE="checkbox" NAME="2.5.29.37" ID="emailProtection" REQUIRED="true" VALUE="E-mail Protection">E-mail Protection</LABEL>
+    </DIV>
+  </DIV>
+  <DIV CLASS="field">
+    <LABEL FOR="1.3.6.1.4.1.311.20.2">Certificate Template Name:</LABEL>
+    <SELECT NAME="1.3.6.1.4.1.311.20.2" ID="1.3.6.1.4.1.311.20.2"><TMPL_LOOP NAME="1.3.6.1.4.1.311.20.2">
+      <OPTION VALUE="<TMPL_VAR NAME=ASN>" <TMPL_IF NAME=SELECTED>SELECTED</TMPL_IF>><TMPL_VAR NAME=NAME></OPTION></TMPL_LOOP> 
+    </SELECT>
+  </DIV>
+  <DIV CLASS="field">
+    <LABEL FOR="sans">Subject Alternative Name: </LABEL>
+    <TEXTAREA NAME="sans" ID="sans" SPELLCHECK="false"><TMPL_VAR NAME=2.5.29.17></TEXTAREA>
+  </DIV>
+  <INPUT TYPE="hidden" NAME="2.5.29.17"     VALUE="">
+  <INPUT TYPE="hidden" NAME="2.5.29.14"     VALUE="<TMPL_VAR NAME=2.5.29.14>">
+  <INPUT TYPE="hidden" NAME="2.5.29.15_var" VALUE="<TMPL_VAR NAME=2.5.29.15>">
+  <INPUT TYPE="hidden" NAME="2.5.29.37_var" VALUE="<TMPL_VAR NAME=2.5.29.37>">
+  <INPUT TYPE="hidden" NAME="passphrase"    VALUE="<TMPL_VAR NAME=passphrase>">
+  <INPUT TYPE="hidden" NAME="privatekey"    VALUE="<TMPL_VAR NAME=privatekey>">
+  <INPUT TYPE="hidden" NAME="action"        VALUE="create">
+<DIV ID="submit">
+  <INPUT TYPE="submit" NAME="submit_key" VALUE="Download Private Key">
+  <INPUT TYPE="submit" NAME="submit_csr" VALUE="Download CSR">
+</DIV>
+</FORM>
+</SPAN>
+
+<DIV ID="cancel">
+  <FORM METHOD="POST" ID="cancel">
+  <INPUT TYPE="submit" NAME="submit_cancel" VALUE="Done">
+  </FORM>
+</DIV>
+
+<TMPL_INCLUDE NAME=footer.html>

@@ -1,0 +1,32 @@
+{
+  "name": "perl-certmgr",
+  "abstract": "Extremely simple CGI interface for creating and managing CSRs and certificate bundles.",
+  "version": "0.1",
+  "release_status": "testing",
+  "author": [
+    "Brad Davidson <brad@oatmail.org>"
+  ],
+  "dynamic_config": false,
+  "generated_by": "Brad Davidson",
+  "meta-spec": {
+    "version": "2",
+    "url": "http://search.cpan.org/perldoc?CPAN::Meta::Spec"
+  },
+  "license": "mit",
+  "prereqs": {
+    "runtime": {
+      "requires": {
+        "CGI": "4.26",
+        "Switch": "2.10",
+        "File::Temp": "0.2304",
+        "HTML::Template": "2.9",
+        "Crypt::OpenSSL::RSA": "0.28",
+        "Crypt::OpenSSL::X509": "1.800.2",
+        "Crypt::OpenSSL::PKCS10": "0.15",
+        "Crypt::OpenSSL::PKCS12": "0.6",
+        "Encode": "2.12",
+        "Data::Dumper": "2.154"
+      }
+    }
+  }
+}

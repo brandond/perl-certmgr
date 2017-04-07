@@ -246,7 +246,7 @@ sub create_pkcs10 {
     } else {
       ();
     } 
-  } qw(CN OU O ST L C E));
+  } ('CN', 'OU', 'O', 'ST', 'L', 'C', 'E'));
   eval {
     $req->set_subject($subject);
   };
@@ -257,7 +257,7 @@ sub create_pkcs10 {
   }
 
   # fill raw types
-  foreach my $oid qw(2.5.29.14 1.3.6.1.4.1.311.20.2) {
+  foreach my $oid ('2.5.29.14', '1.3.6.1.4.1.311.20.2') {
     if ('hash' eq lc($cgi->param($oid))){
       $req->add_ext(Crypt::OpenSSL::PKCS10::NID_subject_key_identifier, 'hash');
     } elsif (my $val = substr($cgi->param($oid), 1)){
@@ -336,16 +336,15 @@ sub fill_form_copy_cert {
 
   # Merge hashes
   my %certinfo = (%subject, %extents);
-  use Data::Dumper;
   print STDERR Dumper \%certinfo;
 
   # Extract text fields for potential modification
-  foreach my $field qw(CN OU O ST L C E 2.5.29.15 2.5.29.17 2.5.29.37 2.16.840.1.113730.1.13){
+  foreach my $field ('CN', 'OU', 'O', 'ST', 'L', 'C', 'E', '2.5.29.15', '2.5.29.17', '2.5.29.37', '2.16.840.1.113730.1.13'){
     $cgi->param($field, $certinfo{$field}{'string'});
   }
  
   # Extract raw fields for direct copy
-  foreach my $field qw(2.5.29.14){
+  foreach my $field ('2.5.29.14'){
     $cgi->param($field, $certinfo{$field}{'raw'});
   }
  

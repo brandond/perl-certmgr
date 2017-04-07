@@ -22,15 +22,25 @@
         <LABEL CLASS="col-sm-2 control-label">Action:</LABEL>
         <DIV CLASS="col-sm-10">
           <DIV CLASS="checkbox">
-            <LABEL FOR="copycert">
-              <INPUT TYPE="radio" NAME="action" VALUE="copycert" ID="copycert" REQUIRED="true" CHECKED>
-              Get a CSR: Initiate a Certificate Signing Request.
+            <LABEL FOR="copycert" CLASS="row">
+              <DIV CLASS="col-sm-1">
+                <INPUT TYPE="radio" NAME="action" VALUE="copycert" ID="copycert" REQUIRED="true" CHECKED>
+              </DIV>
+              <DIV CLASS="col-sm-11 text-nowrap">
+                Get a CSR: Initiate a Certificate Signing Request.<BR>
+                <SMALL>Reuse the private key and populate a CSR with fields from the certificate in an existing PFX file.</SMALL>
+              </DIV>
             </LABEL>
           </DIV>
           <DIV CLASS="checkbox">
-            <LABEL FOR="update">
-              <INPUT TYPE="radio" NAME="action" VALUE="update" ID="update" REQUIRED="true">
-              Get a PFX: Add or update the certificate stored in this file.
+            <LABEL FOR="update" CLASS="row">
+              <DIV CLASS="col-sm-1">
+                <INPUT TYPE="radio" NAME="action" VALUE="update" ID="update" REQUIRED="true">
+              </DIV>
+              <DIV CLASS="col-sm-11 text-nowrap">
+                Get a PFX: Add or update the certificate stored in this file.<BR>
+                <SMALL>Replace the certificate in an existing PFX file, or create a PFX file by bundling a key and certificate.</SMALL>
+              </DIV>
             </LABEL>
           </DIV>
         </DIV>

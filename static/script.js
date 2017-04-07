@@ -4,10 +4,10 @@ $(document).ready(function() {
   switchCertUpload();
   setKeyUsage();
   splitSAN();
-  $('form#new').validate();
-  $('form#copy').submit(validateSAN).validate();
-  $('form#update').validate();
-  $('form#create').validate();
+  $('form#new').validate({errorClass: 'text-danger'});
+  $('form#copy').submit(validateSAN).validate({errorClass: 'text-danger'});
+  $('form#update').validate({errorClass: 'text-danger'});
+  $('form#create').validate({errorClass: 'text-danger'});
   $('input[name=cert_type]').change(switchCertUpload);
   $('input#CN').keyup(autoBuildSANs);
   $('textarea#sans').change(function(){ SanChanged = true; });

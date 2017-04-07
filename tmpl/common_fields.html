@@ -1,0 +1,104 @@
+      <DIV CLASS="form-group">
+        <LABEL FOR="CN" CLASS="col-sm-2 control-label">Common Name: </LABEL>
+        <DIV CLASS="col-sm-10">
+          <INPUT TYPE="text" NAME="CN" ID="CN" REQUIRED="true" VALUE="<TMPL_VAR NAME=CN>" CLASS="form-control">
+        </DIV>
+      </DIV>
+      <DIV CLASS="form-group">
+        <LABEL FOR="E" CLASS="col-sm-2 control-label">Email Address: </LABEL>
+        <DIV CLASS="col-sm-10">
+          <INPUT TYPE="text" NAME="E" ID="E" REQUIRED="true" VALUE="<TMPL_VAR NAME=E>" CLASS="form-control">
+        </DIV>
+      </DIV>
+      <DIV CLASS="form-group">
+        <LABEL FOR="OU" CLASS="col-sm-2 control-label">Organizational Unit: </LABEL>
+        <DIV CLASS="col-sm-10">
+          <INPUT TYPE="text" NAME="OU" ID="OU" REQUIRED="true" VALUE="<TMPL_VAR NAME=OU>" CLASS="form-control">
+        </DIV>
+      </DIV>
+      <DIV CLASS="form-group">
+        <LABEL FOR="O" CLASS="col-sm-2 control-label">Organization: </LABEL>
+        <DIV CLASS="col-sm-10">
+          <INPUT TYPE="text" NAME="O" ID="O" REQUIRED="true" VALUE="<TMPL_VAR NAME=O>" CLASS="form-control">
+        </DIV>
+      </DIV>
+      <DIV CLASS="form-group">
+        <LABEL FOR="ST" CLASS="col-sm-2 control-label">State: </LABEL>
+        <DIV CLASS="col-sm-10">
+          <INPUT TYPE="text" NAME="ST" ID="ST" REQUIRED="true" VALUE="<TMPL_VAR NAME=ST>" CLASS="form-control">
+        </DIV>
+      </DIV>
+      <DIV CLASS="form-group">
+        <LABEL FOR="L" CLASS="col-sm-2 control-label">Locality (City): </LABEL>
+        <DIV CLASS="col-sm-10">
+          <INPUT TYPE="text" NAME="L" ID="L" VALUE="<TMPL_VAR NAME=L>" CLASS="form-control">
+        </DIV>
+      </DIV>
+      <DIV CLASS="form-group">
+        <LABEL FOR="C" CLASS="col-sm-2 control-label">Country: </LABEL>
+        <DIV CLASS="col-sm-10">
+          <INPUT TYPE="text" NAME="C" ID="C" REQUIRED="true" VALUE="<TMPL_VAR NAME=C>" CLASS="form-control">
+        </DIV>
+      </DIV>
+      <DIV CLASS="form-group">
+        <LABEL FOR="2.16.840.1.113730.1.13" CLASS="col-sm-2 control-label">Comment (CRQ, etc): </LABEL>
+        <DIV CLASS="col-sm-10">
+          <INPUT TYPE="text" NAME="2.16.840.1.113730.1.13" ID="2.16.840.1.113730.1.13" REQUIRED="true" VALUE="<TMPL_VAR NAME=2.16.840.1.113730.1.13>" CLASS="form-control">
+        </DIV>
+      </DIV>
+      <DIV CLASS="form-group">
+        <LABEL CLASS="col-sm-2 control-label">Key Usage: </LABEL>
+        <DIV CLASS="col-sm-10">
+          <DIV CLASS="checkbox">
+            <LABEL FOR="digitalSignature"><INPUT TYPE="checkbox" NAME="2.5.29.15" ID="digitalSignature" REQUIRED="true" VALUE="Digital Signature">Digital Signature</LABEL>
+          </DIV>
+          <DIV CLASS="checkbox">
+            <LABEL FOR="nonRepudiation"><INPUT TYPE="checkbox" NAME="2.5.29.15" ID="nonRepudiation" REQUIRED="true" VALUE="Non Repudiation">Non Repudiation</LABEL>
+          </DIV>
+          <DIV CLASS="checkbox">
+            <LABEL FOR="keyEncipherment"><INPUT TYPE="checkbox" NAME="2.5.29.15" ID="keyEncipherment" REQUIRED="true" VALUE="Key Encipherment">Key Encipherment</LABEL>
+          </DIV>
+          <DIV CLASS="checkbox">
+            <LABEL FOR="dataEncipherment"><INPUT TYPE="checkbox" NAME="2.5.29.15" ID="dataEncipherment" REQUIRED="true" VALUE="Data Encipherment">Data Encipherment</LABEL>
+          </DIV>
+        </DIV>
+      </DIV>
+      <DIV CLASS="form-group">
+        <LABEL CLASS="col-sm-2 control-label">Extended Key Usage: </LABEL>
+        <DIV CLASS="col-sm-10">
+          <DIV CLASS="checkbox">
+            <LABEL FOR="serverAuth"><INPUT TYPE="checkbox" NAME="2.5.29.37" ID="serverAuth" REQUIRED="true" VALUE="TLS Web Server Authentication">TLS Web Server Authentication</LABEL>
+          </DIV>
+          <DIV CLASS="checkbox">
+            <LABEL FOR="clientAuth"><INPUT TYPE="checkbox" NAME="2.5.29.37" ID="clientAuth" REQUIRED="true" VALUE="TLS Web Client Authentication">TLS Web Client Authentication</LABEL>
+          </DIV>
+          <DIV CLASS="checkbox">
+            <LABEL FOR="codeSigning"><INPUT TYPE="checkbox" NAME="2.5.29.37" ID="codeSigning" REQUIRED="true" VALUE="Code Signing">Code Signing</LABEL>
+          </DIV>
+          <DIV CLASS="checkbox">
+            <LABEL FOR="emailProtection"><INPUT TYPE="checkbox" NAME="2.5.29.37" ID="emailProtection" REQUIRED="true" VALUE="E-mail Protection">E-mail Protection</LABEL>
+          </DIV>
+        </DIV>
+      </DIV>
+      <DIV CLASS="form-group">
+        <LABEL FOR="1.3.6.1.4.1.311.20.2" CLASS="col-sm-2 control-label">Certificate Template Name:</LABEL>
+        <DIV CLASS="col-sm-10">
+          <SELECT NAME="1.3.6.1.4.1.311.20.2" ID="1.3.6.1.4.1.311.20.2" CLASS="form-control">
+            <TMPL_LOOP NAME="1.3.6.1.4.1.311.20.2">
+            <OPTION VALUE="<TMPL_VAR NAME=ASN>" <TMPL_IF NAME=SELECTED>SELECTED</TMPL_IF>><TMPL_VAR NAME=NAME></OPTION>
+            </TMPL_LOOP> 
+          </SELECT>
+        </DIV>
+      </DIV>
+      <DIV CLASS="form-group">
+        <LABEL FOR="sans" CLASS="col-sm-2 control-label">Subject Alternative Name: </LABEL>
+        <DIV CLASS="col-sm-10">
+          <TEXTAREA NAME="sans" ID="sans" SPELLCHECK="false" CLASS="form-control"><TMPL_VAR NAME=2.5.29.17></TEXTAREA>
+        </DIV>
+      </DIV>
+      <INPUT TYPE="hidden" NAME="2.5.29.17"     VALUE="">
+      <INPUT TYPE="hidden" NAME="2.5.29.14"     VALUE="<TMPL_VAR NAME=2.5.29.14>">
+      <INPUT TYPE="hidden" NAME="2.5.29.15_var" VALUE="<TMPL_VAR NAME=2.5.29.15>">
+      <INPUT TYPE="hidden" NAME="2.5.29.37_var" VALUE="<TMPL_VAR NAME=2.5.29.37>">
+      <INPUT TYPE="hidden" NAME="passphrase"    VALUE="<TMPL_VAR NAME=passphrase>">
+      <INPUT TYPE="hidden" NAME="privatekey"    VALUE="<TMPL_VAR NAME=privatekey>">

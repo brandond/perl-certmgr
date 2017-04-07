@@ -1,14 +1,22 @@
 <!DOCTYPE html>
-<HTML>
+<HTML LANG="en">
 <HEAD>
 <TITLE>Certificate Archive Management Tool</TITLE>
-<LINK   TYPE="text/css"       HREF="static/style.css" REL="stylesheet">
-<LINK   TYPE="text/css"       HREF="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.1/themes/smoothness/jquery-ui.css" REL="stylesheet">
-<SCRIPT TYPE="text/javascript" SRC="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.min.js"></SCRIPT>
-<SCRIPT TYPE="text/javascript" SRC="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.0/jquery.validate.min.js"></SCRIPT>
-<SCRIPT TYPE="text/javascript" SRC="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.0/additional-methods.min.js"></SCRIPT>
-<SCRIPT TYPE="text/javascript" SRC="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.1/jquery-ui.min.js"></SCRIPT>
-<SCRIPT TYPE="text/javascript" SRC="static/script.js"></SCRIPT>
+<META   NAME="viewport" CONTENT="width=device-width, initial-scale=1">
+<LINK   TYPE="text/css" HREF="static/style.css" REL="stylesheet">
+<LINK   TYPE="text/css" HREF="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.min.css" REL="stylesheet">
+<LINK   TYPE="text/css" HREF="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" REL="stylesheet">
+<LINK   TYPE="text/css" HREF="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.css" REL="stylesheet">
 </HEAD>
 <BODY>
-<TMPL_IF NAME=ERROR><DIV CLASS=error><TMPL_VAR NAME=ERROR></DIV></TMPL_IF>
+<DIV CLASS="container">
+
+<NAV CLASS="navbar navbar-default">
+  <DIV CLASS="container-fluid">
+    <DIV CLASS="navbar-header">
+      <H3>Certificate Archive Management Tool</H3>
+    </DIV>
+  </DIV>
+</NAV>
+
+<TMPL_IF NAME="ERROR"><DIV CLASS="alert alert-danger" ROLE="alert"><TMPL_VAR NAME="ERROR"></DIV></TMPL_IF>

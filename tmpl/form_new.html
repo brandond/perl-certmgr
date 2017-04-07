@@ -1,38 +1,73 @@
 <TMPL_INCLUDE NAME=header.html>
-<H2 ID="title">Certificate Archive Management Tool</H2>
-<SPAN ID="certfields">
-<FORM METHOD="POST" ID="new" ENCTYPE="multipart/form-data">
-  <B>Manage Certificates for an existing Private Key</B>
-  <DIV CLASS="field">
-    <LABEL FOR="pfx">PFX/PKCS12 or Key/PKCS8:</LABEL> 
-    <INPUT TYPE="file" NAME="pfx" ID="pfx" REQUIRED="true">
+
+<DIV CLASS="panel panel-default">
+  <DIV CLASS="panel-heading">
+    Manage Certificates for Existing Private Key
   </DIV>
-  <DIV CLASS="field">
-    <LABEL FOR="passphrase">Passphrase:</LABEL>
-    <INPUT TYPE="password" NAME="passphrase" ID="passphrase" REQUIRED="true">
+  <DIV CLASS="panel-body">
+    <FORM METHOD="POST" ID="new" ENCTYPE="multipart/form-data" CLASS="form-horizontal">
+      <DIV CLASS="form-group">
+        <LABEL FOR="pfx" CLASS="col-sm-2 control-label">PFX/PKCS12 or Key/PKCS8:</LABEL>
+        <DIV CLASS="col-sm-10">
+          <INPUT TYPE="file" NAME="pfx" ID="pfx" REQUIRED="true" CLASS="btn btn-default btn-file">
+        </DIV>
+      </DIV>
+      <DIV CLASS="form-group">
+        <LABEL FOR="passphrase" CLASS="col-sm-2 control-label">Passphrase:</LABEL>
+        <DIV CLASS="col-sm-10">
+          <INPUT TYPE="password" NAME="passphrase" ID="passphrase" REQUIRED="true" CLASS="form-control">
+        </DIV>
+      </DIV>
+      <DIV CLASS="form-group">
+        <LABEL CLASS="col-sm-2 control-label">Action:</LABEL>
+        <DIV CLASS="col-sm-10">
+          <DIV CLASS="checkbox">
+            <LABEL FOR="copycert">
+              <INPUT TYPE="radio" NAME="action" VALUE="copycert" ID="copycert" REQUIRED="true" CHECKED>
+              Get a CSR: Initiate a Certificate Signing Request.
+            </LABEL>
+          </DIV>
+          <DIV CLASS="checkbox">
+            <LABEL FOR="update">
+              <INPUT TYPE="radio" NAME="action" VALUE="update" ID="update" REQUIRED="true">
+              Get a PFX: Add or update the certificate stored in this file.
+            </LABEL>
+          </DIV>
+        </DIV>
+      </DIV>
+      <DIV CLASS="form-group">
+        <DIV CLASS="col-sm-2">
+        </DIV>
+        <DIV CLASS="col-sm-10">
+          <INPUT TYPE="submit" NAME="submit_submit" VALUE="Submit" CLASS="btn btn-default">
+        </DIV>
+      </DIV>
+    </FORM>
   </DIV>
-  <DIV CLASS="field">
-    <LABEL>Action:</LABEL>
-    <DIV CLASS="multi">
-      <LABEL FOR="copycert"><INPUT TYPE="radio" NAME="action" VALUE="copycert" ID="copycert" REQUIRED="true" CHECKED>
-      Get a CSR: Initiate a Certificate Signing Request.</LABEL>
-      <LABEL FOR="update"><INPUT TYPE="radio" NAME="action" VALUE="update" ID="update" REQUIRED="true">
-      Get a PFX: Add or update the certificate stored in this file.</LABEL>
-    </DIV>
-  </DIV>
-<DIV>
-<INPUT TYPE="submit" NAME="submit_submit" VALUE="Submit">
 </DIV>
-</FORM>
-<BR>
-<FORM METHOD="POST" ID="create" ENCTYPE="multipart/form-data">
-  <B>Create a Certificate Signing Request using a new Private Key</B>
-  <DIV CLASS="field">
-    <LABEL FOR="passphrase">Passphrase:</LABEL>
-    <INPUT TYPE="password" NAME="passphrase" ID="passphrase" REQUIRED="true">
+
+<DIV CLASS="panel panel-default">
+  <DIV CLASS="panel-heading">
+    Create New Private Key and Certificate Signing Request
   </DIV>
-  <INPUT TYPE="hidden" NAME="action" VALUE="create">
-<INPUT TYPE="submit" NAME="submit_create" VALUE="Create">
-</FORM>
-</SPAN>
+  <DIV CLASS="panel-body">
+    <FORM METHOD="POST" ID="create" ENCTYPE="multipart/form-data" CLASS="form-horizontal">
+      <DIV CLASS="form-group">
+        <LABEL FOR="passphrase" CLASS="col-sm-2 control-label">Passphrase:</LABEL>
+        <DIV CLASS="col-sm-10">
+          <INPUT TYPE="password" NAME="passphrase" ID="passphrase" REQUIRED="true" CLASS="form-control">
+        </DIV>
+      </DIV>
+      <DIV CLASS="form-group">
+        <DIV CLASS="col-sm-2">
+        </DIV>
+        <DIV CLASS="col-sm-10">
+          <INPUT TYPE="submit" NAME="submit_create" VALUE="Submit" CLASS="btn btn-default">
+        </DIV>
+      </DIV>
+      <INPUT TYPE="hidden" NAME="action" VALUE="create">
+    </FORM>
+  </DIV>
+</DIV>
+
 <TMPL_INCLUDE NAME=footer.html>
